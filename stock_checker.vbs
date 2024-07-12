@@ -1,4 +1,4 @@
-Sub stock_chekcer()
+Sub alphabet_test()
 
     ' Loop through all worksheets in the workbook
     For Each ws In ThisWorkbook.Worksheets
@@ -41,7 +41,7 @@ Sub stock_chekcer()
        
         ' Name percentage change column
         ws.Cells(1, 12).Value = "percent_change"
-           
+              
         ' autofit to display data
         ws.Columns("A:Q").AutoFit
 
@@ -120,7 +120,7 @@ Sub stock_chekcer()
                 total_stock_volume = total_stock_volume + ws.Cells(i, 7).Value
                
             End If
-        
+        ' setting for loops to fill cells with greatest%, smallest%, and total volume
         Next i
         
         Dim hightestPercent As Double
@@ -140,6 +140,7 @@ Sub stock_chekcer()
         
         For i = 2 To Cells(Rows.Count, "A").End(xlUp).Row
             percent = Cells(i, "L").Value
+            vol = Cells(i, "J").Value
             
             If percent > hightestPercent Then
             
@@ -172,11 +173,6 @@ Sub stock_chekcer()
                 Range("P3").NumberFormat = "0.00%"
                 
             End If
-      
-        Next i
-        
-        For i = 2 To Cells(Rows.Count, "A").End(xlUp).Row
-            percent = Cells(i, "J").Value
             
             If vol > highestVol Then
              
@@ -190,12 +186,16 @@ Sub stock_chekcer()
              
              Range("P4").Value = vol
              
+             Range("P4").NumberFormat = "0.00"
+            
             End If
             
+        Cells(1, 15).Value = "ticker"
+        
+        Cells(1, 16).Value = "value"
+        
         Next i
  
     Next ws
        
 End Sub
-
-' did this update?
