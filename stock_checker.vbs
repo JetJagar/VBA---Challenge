@@ -199,3 +199,5 @@ Sub stock_chekcer()
     Next ws
        
 End Sub
+
+' did this update?
