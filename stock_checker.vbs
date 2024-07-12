@@ -41,9 +41,7 @@ Sub stock_chekcer()
        
         ' Name percentage change column
         ws.Cells(1, 12).Value = "percent_change"
-        
-
-              
+           
         ' autofit to display data
         ws.Columns("A:Q").AutoFit
 
